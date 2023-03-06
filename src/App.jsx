@@ -19,12 +19,10 @@ function App() {
 
   useEffect(() => {
     const configuration = new Configuration({
-      apiKey:
-        import.meta.env.OPENAI_API_KEY ||
-        "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",
+      apiKey: import.meta.env.VITE_OPENAI_API_KEY || "abc",
     });
     const openai = new OpenAIApi(configuration);
-
+    // console.log("openai", import.meta.env.VITE_OPENAI_API_KEY);
     setOpenai(openai);
   }, []);
 
