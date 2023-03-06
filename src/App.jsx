@@ -7,6 +7,7 @@ import DefaultCard from "./components/DefaultCard.jsx";
 import TarotCard from "./components/TarotCard.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import Spread from "./components/Spread.jsx";
 
 function App() {
   const numOfCards = 3;
@@ -14,9 +15,7 @@ function App() {
   const [topic, setTopic] = useState("");
   const [openai, setOpenai] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [reading, setReading] = useState(
-    "Please select 3 cards and a topic to get a reading."
-  );
+  const [reading, setReading] = useState("");
 
   useEffect(() => {
     const configuration = new Configuration({
@@ -75,7 +74,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div className="flex justify-center">
+      <div className="flex justify-center px-4">
         <div className="container py-6 mt-16">
           <h1 className="text-4xl font-bold">Tarot Reader</h1>
           <DefaultCard
@@ -104,17 +103,7 @@ function App() {
             <h3 className="text-2xl font-medium mb-4">
               Pick {numOfCards} cards
             </h3>
-            <div className="flex justify-around gap-6">
-              {cards.map((card, idx) => (
-                <TarotCard
-                  idx={idx}
-                  card={card}
-                  onDrawClick={handleCardDrawn(idx)}
-                  key={card?.name || idx}
-                  className={"max-w-md flex-1 basis-20"}
-                />
-              ))}
-            </div>
+            <Spread cards={cards} handleCardDrawn={handleCardDrawn} />
           </div>
           {cards && cards.filter((c) => c).length == numOfCards && (
             <div className="flex justify-center mt-6">
@@ -138,16 +127,16 @@ function App() {
               </DefaultCard>
             </div>
           ) : (
-            reading && (
-              <div className="mt-6">
-                <h3 className="text-2xl font-medium mb-4">Reading</h3>
-                <DefaultCard className={"w-full"}>
-                  <p className="text-base whitespace-pre-line">
-                    {reading.trim()}
-                  </p>
-                </DefaultCard>
-              </div>
-            )
+            <div className="mt-6">
+              <h3 className="text-2xl font-medium mb-4">Reading</h3>
+              <DefaultCard className={"w-full"}>
+                <p className="text-base whitespace-pre-line">
+                  {reading
+                    ? reading.trim()
+                    : "Please select 3 cards and a topic to get a reading."}
+                </p>
+              </DefaultCard>
+            </div>
           )}
           <div className="my-6">
             <h3 className="text-2xl font-medium mb-4">About the project</h3>

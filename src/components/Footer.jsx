@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer class="footer footer-center p-4 bg-primary text-primary-content">
+    <footer className="footer footer-center p-4 bg-primary text-primary-content">
       <div>
         <p>
           Made by{" "}

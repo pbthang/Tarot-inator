@@ -4,8 +4,36 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Tarotinator</title>
+    <meta
+      name="description"
+      content="Tarot reading using Artificial Intelligence"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="Tarotinator" />
+    <meta property="og:url" content="https://tarotinator.vercel.app/" />
+    <meta property="og:image" content="/vite.svg" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Tarot reading using Artificial Intelligence"
+    />
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-F0W7E7LC1D"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-F0W7E7LC1D");
+  </script>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
