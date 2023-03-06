@@ -5,13 +5,11 @@ React application that does tarot reading using OpenAI API
 ## Getting Started
 
 1. Create an `.env` file and add the following line to it:
-
 ```zsh
 VITE_OPENAI_API_KEY=<put_your_api_key_here>
 ```
-
-1. Run `npm install` to install dependencies
-2. Run `npm start` to start the application
+2. Run `npm install` to install dependencies
+3. Run `npm start` to start the application
 
 ## Built With
 
